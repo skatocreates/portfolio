@@ -1,0 +1,164 @@
+/* =========================
+   Travel Hero
+========================= */
+
+.travel-hero {
+  height: 65vh;
+  background-image: url("../img/travel/travel_kyusyu.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  position: relative;
+  z-index: 1;
+}
+
+.travel-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.travel-hero__inner {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 40px;
+  color: #fff;
+}
+
+.travel-hero h1 {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.travel-hero p {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* =========================
+   Section
+========================= */
+
+.travel-section {
+  padding: 48px 0;
+}
+
+/* =========================
+   Travel Map
+========================= */
+
+.travel-map {
+  /* width: 100%; */
+  position: relative;
+  z-index: 2;
+  margin-top: 80px;  
+  padding: 80px 0 64px; /* ← marginじゃなく padding */
+  background: #f7f7f7;
+  padding: 64px 0;
+  transform-origin: center center;
+  background: #f7f7f7;
+  
+}
+
+.map-wrapper {
+  width: 100%;
+  height: auto; /* 高さを自動調整 */
+  display: flex;
+  justify-content: center; /* 中央揃え */
+  align-items: flex-start; /* 上部に配置 */
+  overflow: hidden;
+}
+
+.japan-map {
+  width: auto;          /* 幅を自動調整 */
+  height: 100%;         /* 高さを親要素に合わせる */
+  max-width: 100%;      /* 幅の制限を設定 */
+  max-height: 100%;     /* 高さの制限を設定 */
+  transform-origin: center top; /* 中央上部を基準に縮小 */
+  display: block;
+}
+
+
+/* 日本地図を白抜きにする */
+.japan-map path {
+  fill: #fff;          /* 中を白 */
+  stroke: #666;        /* 県境が見えるように薄い線 */
+  stroke-width: 1;
+}
+
+
+.travel-map .section-title {
+  text-align: center
+}
+
+/* 通常状態 */
+.japan-map .pref {
+  fill: #fff;
+  stroke: #666;
+  stroke-width: 1;
+  transition: fill 0.25s ease, stroke 0.25s ease;
+  cursor: pointer;
+}
+
+
+/* 通常 */
+.japan-map .map-land {
+  fill: #fff;
+  stroke: #666;
+  stroke-width: 1;
+  transition: fill 0.2s ease;
+}
+
+/* 初期状態（うっすら緑色） */
+#JP-40, /* 福岡 */
+#JP-41, /* 佐賀 */
+#JP-42, /* 長崎 */
+#JP-43, /* 熊本 */
+#JP-44, /* 大分 */
+#JP-45, /* 宮崎 */
+#JP-46  /* 鹿児島 */ {
+  fill: #7ad3c0; /* うっすら緑色 */
+  transition: fill 0.2s ease; /* スムーズな変化 */
+}
+
+/* ホバー時の色 */
+.japan-map .map-land:hover {
+  fill: #158074; /* ホバー時の濃い緑色 */
+  transform: scale(1.002); /* やや拡大 */
+  cursor: pointer;
+}
+/* =========================
+   Popup
+========================= */
+
+.popup {
+  position: absolute;
+  display: none; /* 初期状態では非表示 */
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  font-family: Arial, sans-serif;
+}
+
+.popup h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.popup a {
+  color: #158074;
+  text-decoration: none;
+}
+
+.popup a:hover {
+  text-decoration: underline;
+}
+

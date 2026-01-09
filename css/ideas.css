@@ -1,0 +1,77 @@
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+} */
+
+/* =========================
+   Ideas page
+   ========================= */
+
+/* コンテンツ全体の幅と中央寄せ */
+.contents {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* セクションの余白 */
+section {
+    margin-bottom: 64px;
+}
+
+/* 見出しのスタイル */
+section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 8px;
+}
+
+section h3 {
+    font-size: 1.3rem;
+    margin: 32px 0 16px;
+    color: #374151;
+}
+
+/* カードデザイン */
+.card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* リンクのスタイル */
+.card a {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.card a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+/* アイコンのスタイル */
+.icon_link, .pdf_icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 640px) {
+    .card {
+        padding: 16px;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,220 @@
+:root {
+  --text-main: #222;
+  --text-sub: #555;
+  --bg-gray: #f3f3f3;
+  --accent: #4f7cff;
+  --research-color: #6b4eff; /* 知的・落ち着き */
+  --idea-color: #ffb703;    /* 発想・ひらめき */
+  --coffee-color: #8b5a2b;  /* コーヒー */
+  --travel-color: #2a9d8f;  /* 旅・自然 */  
+}
+
+/* ===== Base ===== */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-main);
+  background: #fff;
+}
+
+a {
+  color: inherit;
+}
+
+/* ===== Layout ===== */
+.header_title {
+  font-size: 2rem; /* タイトルのフォントサイズ */
+  color: #374151; /* ダークグレー */
+
+  margin: 0; /* 余白をリセット */
+  padding: 16px 0; /* 上下の余白を追加 */
+}
+
+.main {
+  padding: 32px 16px;
+}
+
+.section {
+  max-width: 960px;
+  margin: 0 auto 48px;
+  padding: 32px;
+  border-radius: 12px;
+}
+
+.section--gray {
+  background: var(--bg-gray);
+}
+
+.section-title {
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-size: 1.6rem;
+}
+
+.footer {
+  padding: 24px;
+  text-align: center;
+  color: var(--text-sub);
+  font-size: 0.9rem;
+}
+
+/* ===== Intro ===== */
+.intro__text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-main);
+}
+
+/* ===== Tabs (Home) ===== */
+.tab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 24px;
+}
+
+.tab-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+
+  background: #fff;
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text-main);
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+
+/* 研究カード（紫ベース） */
+.tab-card--research:hover {
+  background-color: #ddd9f3; /* 淡い紫色 */
+}
+
+/* アイディアカード（黄色ベース） */
+.tab-card--idea:hover {
+  background-color: #fff9c4; /* 淡い黄色 */
+}
+
+/* コーヒーカード（茶色ベース） */
+.tab-card--coffee:hover {
+  background-color: #fbe9e7; /* 淡い茶色 */
+}
+
+/* 旅行カード（青ベース） */
+.tab-card--travel:hover {
+  background-color: #e3f2fd; /* 淡い青色 */
+}
+
+/* ===== Icon ===== */
+.tab-card__icon {
+  width: 22px;
+  height: 22px;
+  fill: #000; /* 白字禁止・黒固定 */
+  transition: fill 0.15s ease;
+}
+
+.tab-card--research:hover .tab-card__icon {
+  fill: var(--research-color);
+}
+
+.tab-card--idea:hover .tab-card__icon {
+  fill: var(--idea-color);
+}
+
+.tab-card--coffee:hover .tab-card__icon {
+  fill: var(--coffee-color);
+}
+
+.tab-card--travel:hover .tab-card__icon {
+  fill: var(--travel-color);
+}
+
+
+.tab-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* ===== Tab Text ===== */
+.tab-card span {
+  font-size: 0.95rem;
+  color: var(--text-main); /* ホバーでも色変えない */
+}
+
+/* Links section */
+/* Links section */
+.link-list {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.link-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #f9fafb;
+  /* color: #2563eb; */
+  text-decoration: none;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.link-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.1);
+}
+
+.link-item img {
+  width: 20px;
+  height: 20px;
+}
+.link-item--qiita {
+  border: 1px solid #55c50033;
+}
+
+.link-item--x {
+  border: 1px solid #00000022;
+}
+
+/* ===== Utility ===== */
+@media (max-width: 480px) {
+  .section {
+    padding: 24px;
+  }
+}
+
+/* 研究（紫色） */
+.text-research {
+  color: var(--research-color); /* 紫色 */
+  font-weight: bold;
+}
+
+/* アイディア（黄色） */
+.text-idea {
+  color: var(--idea-color); /* 黄色 */
+  font-weight: bold;
+}
+
+/* コーヒー（茶色） */
+.text-coffee {
+  color: var(--coffee-color); /* 茶色 */
+  font-weight: bold;
+}
+
+/* 旅行（緑色） */
+.text-travel {
+  color: var(--travel-color); /* 緑色 */
+  font-weight: bold;
+}

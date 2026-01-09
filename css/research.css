@@ -1,0 +1,136 @@
+/* =========================
+   Research page
+   ========================= */
+
+   /* コンテンツ全体の幅と中央寄せ */
+   .contents {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+/* セクションの余白 */
+  section {
+    margin-bottom: 64px;
+  }
+  
+/* 見出しのスタイル */
+  section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 8px;
+  }
+  
+  section h3 {
+    font-size: 1.3rem;
+    margin: 32px 0 16px;
+    color: #374151;
+  }
+  
+  /* paper list */
+  .paper-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .paper-list li {
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    line-height: 1.7;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  }
+  
+  /* author emphasis */
+  .paper-list b u {
+    text-decoration: none;
+    border-bottom: 2px solid #60a5fa;
+    padding-bottom: 2px;
+  }
+  
+/* research page links (paper / achievements / qualifications) */
+.paper-list a,
+section ul:not(.paper-list) a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  color: #2563eb;
+}
+
+.paper-list a:hover,
+section ul:not(.paper-list) a:hover {
+  text-decoration: underline;
+}
+
+  
+  /* icons */
+  .icon_link,
+  .pdf_icon,
+  .link_icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  /* other lists */
+  section ul:not(.paper-list) {
+    padding-left: 20px;
+  }
+  
+  section ul:not(.paper-list) li {
+    margin-bottom: 8px;
+  }
+  
+  /* qualification / achievement links */
+  section li a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 6px;
+  }
+  
+  /* responsive */
+  @media (max-width: 640px) {
+    .paper-list li {
+      padding: 16px;
+    }
+  
+    section h2 {
+      font-size: 1.5rem;
+    }
+  }
+
+/* 共通カードデザイン */
+.paper-card, .achievement-card, .qualification-card, .ta-card, .activity-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* リンクのスタイル */
+.paper-link, .achievement-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.paper-link:hover, .achievement-link:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
+
+.icon_link, .pdf_icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
