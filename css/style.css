@@ -93,21 +93,33 @@ a {
 }
 
 /* 研究カード（紫ベース） */
+.tab-card--research {
+  background-color: #edecf7; /* 淡い紫色 */
+}
 .tab-card--research:hover {
   background-color: #ddd9f3; /* 淡い紫色 */
 }
 
 /* アイディアカード（黄色ベース） */
+.tab-card--idea {
+  background-color: #faf8e6; /* 淡い黄色 */
+}
 .tab-card--idea:hover {
   background-color: #fff9c4; /* 淡い黄色 */
 }
 
 /* コーヒーカード（茶色ベース） */
+.tab-card--coffee {
+  background-color: #f5eeee; /* 淡い茶色 */
+}
 .tab-card--coffee:hover {
   background-color: #fbe9e7; /* 淡い茶色 */
 }
 
 /* 旅行カード（青ベース） */
+.tab-card--travel {
+  background-color: #ecf2f7; /* 淡い青色 */
+}
 .tab-card--travel:hover {
   background-color: #e3f2fd; /* 淡い青色 */
 }
