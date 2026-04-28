@@ -2,14 +2,23 @@
    Travel Hero
 ========================= */
 
+.main {
+  box-sizing: border-box;
+  width: 100%;
+  overflow-x: hidden;
+}
+
 .travel-hero {
-  height: 65vh;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 420px;
+  height: min(65vh, 620px);
   background-image: url("../img/travel/travel_kyusyu.jpg");
   background-size: cover;
   background-position: center;
   position: relative;
-  position: relative;
   z-index: 1;
+  overflow: hidden;
 }
 
 .travel-hero::before {
@@ -20,23 +29,31 @@
 }
 
 .travel-hero__inner {
+  box-sizing: border-box;
   position: relative;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 40px;
+  padding: 0 clamp(24px, 6vw, 56px);
   color: #fff;
 }
 
 .travel-hero h1 {
-  font-size: 48px;
-  margin-bottom: 12px;
+  margin: 0 0 12px;
+  font-size: clamp(36px, 7vw, 48px);
+  line-height: 1.1;
+  letter-spacing: 0;
 }
 
 .travel-hero p {
+  max-width: 520px;
+  margin: 0;
   font-size: 16px;
+  line-height: 1.8;
   opacity: 0.9;
+  overflow-wrap: anywhere;
 }
 
 /* =========================
@@ -47,38 +64,130 @@
   padding: 48px 0;
 }
 
+.travel-list {
+  margin: clamp(48px, 8vw, 80px) 0 0;
+}
+
+.travel-contents {
+  box-sizing: border-box;
+  width: min(100%, 900px);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.travel-list .section-title {
+  margin: 0 0 24px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e5e7eb;
+  font-size: 1.8rem;
+}
+
+.travel-card-list {
+  display: grid;
+  width: 100%;
+  gap: 16px;
+}
+
+.travel-card {
+  box-sizing: border-box;
+  min-width: 0;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  overflow-wrap: anywhere;
+}
+
+.travel-card.is-active {
+  border-color: #7ad3c0;
+  box-shadow: 0 8px 18px rgba(21, 128, 116, 0.16);
+}
+
+.travel-card__header {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.travel-card__title {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+.travel-card__status {
+  flex: 0 0 auto;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #e7f5f2;
+  color: #158074;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.travel-card__meta {
+  margin: 0 0 10px;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.travel-card__summary {
+  margin: 0;
+  line-height: 1.8;
+}
+
+.travel-card__link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 12px;
+  color: #007bff;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.travel-card__link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
 /* =========================
    Travel Map
 ========================= */
 
 .travel-map {
-  /* width: 100%; */
+  box-sizing: border-box;
+  width: 100%;
   position: relative;
   z-index: 2;
-  margin-top: 80px;  
-  padding: 80px 0 64px; /* ← marginじゃなく padding */
-  background: #f7f7f7;
-  padding: 64px 0;
+  margin-top: clamp(48px, 8vw, 80px);
+  padding: 64px clamp(12px, 4vw, 24px);
   transform-origin: center center;
   background: #f7f7f7;
-  
+  overflow: hidden;
 }
 
 .map-wrapper {
-  width: 100%;
-  height: auto; /* 高さを自動調整 */
+  width: min(100%, 720px);
+  margin: 0 auto;
+  height: auto;
   display: flex;
-  justify-content: center; /* 中央揃え */
-  align-items: flex-start; /* 上部に配置 */
+  justify-content: center;
+  align-items: flex-start;
   overflow: hidden;
 }
 
 .japan-map {
-  width: auto;          /* 幅を自動調整 */
-  height: 100%;         /* 高さを親要素に合わせる */
-  max-width: 100%;      /* 幅の制限を設定 */
-  max-height: 100%;     /* 高さの制限を設定 */
-  transform-origin: center top; /* 中央上部を基準に縮小 */
+  width: min(100%, 640px);
+  height: auto;
+  max-width: 100%;
+  transform-origin: center top;
   display: block;
 }
 
@@ -92,7 +201,7 @@
 
 
 .travel-map .section-title {
-  text-align: center
+  text-align: center;
 }
 
 /* 通常状態 */
@@ -110,23 +219,21 @@
   fill: #fff;
   stroke: #666;
   stroke-width: 1;
-  transition: fill 0.2s ease;
+  transition: fill 0.2s ease, stroke 0.2s ease;
 }
 
-/* 初期状態（うっすら緑色） */
-#JP-40, /* 福岡 */
-#JP-41, /* 佐賀 */
-#JP-42, /* 長崎 */
-#JP-43, /* 熊本 */
-#JP-44, /* 大分 */
-#JP-45, /* 宮崎 */
-#JP-46  /* 鹿児島 */ {
+.japan-map .map-land.is-visited {
   fill: #7ad3c0; /* うっすら緑色 */
   transition: fill 0.2s ease; /* スムーズな変化 */
 }
 
+.japan-map .map-land.is-active {
+  fill: #158074;
+  stroke: #0f5f56;
+}
+
 /* ホバー時の色 */
-.japan-map .map-land:hover {
+.japan-map .map-land.is-visited:hover {
   fill: #158074; /* ホバー時の濃い緑色 */
   transform: scale(1.002); /* やや拡大 */
   cursor: pointer;
@@ -136,6 +243,7 @@
 ========================= */
 
 .popup {
+  box-sizing: border-box;
   position: absolute;
   display: none; /* 初期状態では非表示 */
   background-color: white;
@@ -145,12 +253,19 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   font-family: Arial, sans-serif;
+  max-width: min(280px, calc(100vw - 32px));
 }
 
 .popup h3 {
   margin: 0;
   font-size: 16px;
   color: #333;
+}
+
+.popup p {
+  margin: 6px 0 0;
+  color: #555;
+  font-size: 13px;
 }
 
 .popup a {
@@ -162,3 +277,50 @@
   text-decoration: underline;
 }
 
+@media (max-width: 640px) {
+  .travel-hero {
+    min-height: 420px;
+    height: min(62vh, 560px);
+    background-position: center top;
+  }
+
+  .travel-hero__inner {
+    justify-content: flex-end;
+    padding: 0 24px 56px;
+  }
+
+  .travel-hero h1 {
+    font-size: 40px;
+  }
+
+  .travel-hero p {
+    max-width: 100%;
+    font-size: 15px;
+  }
+
+  .travel-map {
+    padding: 48px 12px;
+  }
+
+  .travel-list .section-title {
+    font-size: 1.5rem;
+  }
+
+  .travel-card__header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .japan-map {
+    width: 100%;
+  }
+
+  .popup {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    top: auto;
+    width: auto;
+  }
+}
