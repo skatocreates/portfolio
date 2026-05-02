@@ -2,6 +2,15 @@
    Travel Hero
 ========================= */
 
+.travel-header {
+  padding: 0 0 24px;
+}
+
+.travel-header__home {
+  display: inline-flex;
+  text-decoration: underline;
+}
+
 .main {
   box-sizing: border-box;
   width: 100%;
@@ -56,13 +65,13 @@
   overflow-wrap: anywhere;
 }
 
+.travel-hero p span {
+  display: block;
+}
+
 /* =========================
    Section
 ========================= */
-
-.travel-section {
-  padding: 48px 0;
-}
 
 .travel-list {
   margin: clamp(48px, 8vw, 80px) 0 0;
@@ -192,40 +201,19 @@
   display: block;
 }
 
-
-/* 日本地図を白抜きにする */
-.japan-map path {
-  fill: #fff;          /* 中を白 */
-  stroke: #666;        /* 県境が見えるように薄い線 */
-  stroke-width: 1;
-}
-
-
 .travel-map .section-title {
   text-align: center;
 }
 
-/* 通常状態 */
-.japan-map .pref {
-  fill: #fff;
-  stroke: #666;
-  stroke-width: 1;
-  transition: fill 0.25s ease, stroke 0.25s ease;
-  cursor: pointer;
-}
-
-
-/* 通常 */
 .japan-map .map-land {
   fill: #fff;
   stroke: #666;
   stroke-width: 1;
-  transition: fill 0.2s ease, stroke 0.2s ease;
+  transition: fill 0.2s ease, stroke 0.2s ease, transform 0.2s ease;
 }
 
 .japan-map .map-land.is-visited {
-  fill: #7ad3c0; /* うっすら緑色 */
-  transition: fill 0.2s ease; /* スムーズな変化 */
+  fill: #7ad3c0;
 }
 
 .japan-map .map-land.is-active {
@@ -233,10 +221,9 @@
   stroke: #0f5f56;
 }
 
-/* ホバー時の色 */
 .japan-map .map-land.is-visited:hover {
-  fill: #158074; /* ホバー時の濃い緑色 */
-  transform: scale(1.002); /* やや拡大 */
+  fill: #158074;
+  transform: scale(1.002);
   cursor: pointer;
 }
 /* =========================
