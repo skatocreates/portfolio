@@ -184,7 +184,7 @@
 }
 
 .map-wrapper {
-  width: min(100%, 720px);
+  width: min(100%, 900px);
   margin: 0 auto;
   height: auto;
   display: flex;
@@ -194,7 +194,7 @@
 }
 
 .japan-map {
-  width: min(100%, 640px);
+  width: min(100%, 800px);
   height: auto;
   max-width: 100%;
   transform-origin: center top;
@@ -299,16 +299,20 @@
     gap: 8px;
   }
 
+  .map-wrapper {
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
   .japan-map {
-    width: 100%;
+    flex: 0 0 187.5%;
+    width: 187.5%;
+    max-width: none;
   }
 
   .popup {
-    position: fixed;
-    right: 16px;
-    bottom: 16px;
-    left: 16px;
-    top: auto;
-    width: auto;
+    width: max-content;
   }
 }

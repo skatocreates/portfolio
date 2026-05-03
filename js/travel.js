@@ -188,23 +188,30 @@ const renderMapPopup = (popup, trip) => {
   }
 };
 
+const clamp = (value, min, max) =>
+  Math.min(Math.max(value, min), Math.max(min, max));
+
 const positionMapPopup = (popup, target) => {
-  if (window.matchMedia("(max-width: 640px)").matches) {
-    popup.style.top = "";
-    popup.style.left = "";
-    return;
-  }
+  const map = target.closest(".travel-map");
+  if (!map) return;
 
   const rect = target.getBoundingClientRect();
-  const mapRect = target.closest(".travel-map").getBoundingClientRect();
+  const mapRect = map.getBoundingClientRect();
   const popupWidth = popup.offsetWidth;
   const popupHeight = popup.offsetHeight;
-  const top = rect.top - mapRect.top - popupHeight - 12;
+  const gap = 12;
+  const padding = 12;
+  const topAboveTarget = rect.top - mapRect.top - popupHeight - gap;
+  const topBelowTarget = rect.bottom - mapRect.top + gap;
+  const top = topAboveTarget >= padding ? topAboveTarget : topBelowTarget;
   const left = rect.left - mapRect.left + rect.width / 2 - popupWidth / 2;
-  const maxLeft = mapRect.width - popupWidth - 12;
+  const maxTop = mapRect.height - popupHeight - padding;
+  const maxLeft = mapRect.width - popupWidth - padding;
 
-  popup.style.top = `${Math.max(12, top)}px`;
-  popup.style.left = `${Math.min(Math.max(12, left), maxLeft)}px`;
+  popup.style.right = "";
+  popup.style.bottom = "";
+  popup.style.top = `${clamp(top, padding, maxTop)}px`;
+  popup.style.left = `${clamp(left, padding, maxLeft)}px`;
 };
 
 const showMapPopup = (popup, trip, target) => {
